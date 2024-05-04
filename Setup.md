@@ -43,3 +43,12 @@ npm run dev
 ### npm i -D nodemon
 ### npm i concurrently
 ### npm i dotenv
+
+npm i -D eslint prettier eslint-config-prettier eslint-plugin-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser
+
+
+
+npm i eslint-plugin-simple-import-sort
+$ npm i bullmq ioredis
+$ npm i @types/ioredis
+
