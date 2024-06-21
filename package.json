@@ -22,7 +22,7 @@
     "@types/ioredis": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
-    "bullmq": "^5.7.8",
+    "bullmq": "^5.7.12",
     "concurrently": "^8.2.2",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
