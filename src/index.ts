@@ -1,11 +1,17 @@
+import bodyParser from 'body-parser';
 import express, { Express } from "express";
 
 import serverConfig from "./config/serverConfig";
-import sampleQueueProducer from "./producers/sampleQueueProducer";
+import runPython from './containers/runPythonDocker';
+// import sampleQueueProducer from "./producers/sampleQueueProducer";
 import apiRouter from "./routes";
 import SampleWorker from "./worker/SampleWorker";
 
 const app: Express = express();
+
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+app.use(bodyParser.text());
 
 app.use('/api', apiRouter);
 app.listen(serverConfig.PORT, () => {
@@ -13,12 +19,12 @@ app.listen(serverConfig.PORT, () => {
 
   SampleWorker('SampleQueue');
 
-  sampleQueueProducer('SampleJob', {
-    name: "sai",
-    company: "OPEN",
-    position: "SDE 1",
-    location: "Bangalore | onsite"
-  }, 1);
+  // sampleQueueProducer('SampleJob', {
+  //   name: "sai",
+  //   company: "OPEN",
+  //   position: "SDE 1",
+  //   location: "Bangalore | onsite"
+  // }, 1);
 
   // sampleQueueProducer('SampleJob', {
   //   name: "karthik",
@@ -26,5 +32,8 @@ app.listen(serverConfig.PORT, () => {
   //   position: "SDE 1",
   //   location: "Bangalore | onsite"
   // }, 2);
+
+  const code = `print('hello')`;
+  runPython(code);
 
 });
